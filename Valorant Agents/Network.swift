@@ -11,10 +11,6 @@ import SwiftUI
 
 class Network: ObservableObject {
     @Published var agents: AgentsModel = AgentsModel(status: 0, data: [])
-    var imageLoader = ImageLoader()
-    
-
-    
     
     func getUsers() {
         guard let url = URL(string: "https://valorant-api.com/v1/agents") else { fatalError("Missing URL") }
