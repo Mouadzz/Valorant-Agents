@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Valorant_AgentsApp: App {
+    var network = Network()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView().environmentObject(network)
         }
     }
 }
