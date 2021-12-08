@@ -8,16 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3F5C8D5D2760F0B30045642C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C8D5C2760F0B30045642C /* HomeView.swift */; };
-		3F5C8D5E2760F1190045642C /* Valorant.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3F5C8D5B2760F0310045642C /* Valorant.ttf */; };
 		3F5C8D612760FA600045642C /* AgentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C8D602760FA600045642C /* AgentsModel.swift */; };
 		3F5C8D632760FAD90045642C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C8D622760FAD90045642C /* Network.swift */; };
 		3F8932BD2760E3BB00435E8A /* Valorant_AgentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8932BC2760E3BB00435E8A /* Valorant_AgentsApp.swift */; };
 		3F8932C12760E3BD00435E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8932C02760E3BD00435E8A /* Assets.xcassets */; };
 		3F8932C42760E3BD00435E8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8932C32760E3BD00435E8A /* Preview Assets.xcassets */; };
+		3FD89FD827612C2200A34662 /* Valorant.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FD89FD727612C2200A34662 /* Valorant.ttf */; };
+		3FD89FDA27612D7E00A34662 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD89FD927612D7E00A34662 /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F5C8D5B2760F0310045642C /* Valorant.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Valorant.ttf; path = ../../../Downloads/Valorant.ttf; sourceTree = "<group>"; };
 		3F5C8D5C2760F0B30045642C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3F5C8D602760FA600045642C /* AgentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentsModel.swift; sourceTree = "<group>"; };
 		3F5C8D622760FAD90045642C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
@@ -26,6 +26,8 @@
 		3F8932C02760E3BD00435E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F8932C32760E3BD00435E8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3F8932C52760E3BD00435E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FD89FD727612C2200A34662 /* Valorant.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Valorant.ttf; sourceTree = "<group>"; };
+		3FD89FD927612D7E00A34662 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +44,7 @@
 		3F5C8D5A2760F01F0045642C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				3F5C8D5B2760F0310045642C /* Valorant.ttf */,
+				3FD89FD727612C2200A34662 /* Valorant.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -74,6 +76,7 @@
 				3F8932C22760E3BD00435E8A /* Preview Content */,
 				3F5C8D5C2760F0B30045642C /* HomeView.swift */,
 				3F5C8D622760FAD90045642C /* Network.swift */,
+				3FD89FD927612D7E00A34662 /* ImageLoader.swift */,
 			);
 			path = "Valorant Agents";
 			sourceTree = "<group>";
@@ -144,8 +147,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F8932C42760E3BD00435E8A /* Preview Assets.xcassets in Resources */,
-				3F5C8D5E2760F1190045642C /* Valorant.ttf in Resources */,
 				3F8932C12760E3BD00435E8A /* Assets.xcassets in Resources */,
+				3FD89FD827612C2200A34662 /* Valorant.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +161,7 @@
 			files = (
 				3F5C8D5D2760F0B30045642C /* HomeView.swift in Sources */,
 				3F8932BD2760E3BB00435E8A /* Valorant_AgentsApp.swift in Sources */,
+				3FD89FDA27612D7E00A34662 /* ImageLoader.swift in Sources */,
 				3F5C8D632760FAD90045642C /* Network.swift in Sources */,
 				3F5C8D612760FA600045642C /* AgentsModel.swift in Sources */,
 			);
@@ -292,7 +296,7 @@
 				DEVELOPMENT_TEAM = BN7XCYHM3S;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Valorant Agents/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,7 +318,7 @@
 				DEVELOPMENT_TEAM = BN7XCYHM3S;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Valorant Agents/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

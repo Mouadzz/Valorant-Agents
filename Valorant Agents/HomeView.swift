@@ -10,6 +10,9 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var network: Network
+    @StateObject var imageLoader = ImageLoader()
+    @State var defaultimage = UIImage(named: "logo")
+    
     
     var body: some View {
         
@@ -33,7 +36,16 @@ struct HomeView: View {
                 ScrollView(.horizontal) {
                     LazyHStack {
                         ForEach(self.network.agents.data.indices, id: \.self){ index in
-                            Text("\(network.agents.data[index].displayName)")
+                            
+                            
+                            
+                            AsyncImage(
+                                url:  URL(string: "\(self.network.agents.data[index].fullPortrait ?? "")")
+                                
+                            ).aspectRatio(contentMode: .fill
+                            )
+                            
+                            
                         }
                     }
                 }.onAppear {
