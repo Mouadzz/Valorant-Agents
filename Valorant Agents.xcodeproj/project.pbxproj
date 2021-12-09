@@ -10,6 +10,10 @@
 		3F4AB3F9276210760030FFAA /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AB3F8276210760030FFAA /* ApiError.swift */; };
 		3F4AB3FB276214280030FFAA /* ImageLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AB3FA276214280030FFAA /* ImageLoadingView.swift */; };
 		3F4AB3FD27621C7D0030FFAA /* UiScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AB3FC27621C7D0030FFAA /* UiScreen.swift */; };
+		3F4AB3FF276232DB0030FFAA /* MapsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AB3FE276232DA0030FFAA /* MapsView.swift */; };
+		3F4AB401276232E90030FFAA /* AgentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AB400276232E90030FFAA /* AgentsView.swift */; };
+		3F4AB403276233000030FFAA /* ArsenalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AB402276233000030FFAA /* ArsenalView.swift */; };
+		3F4AB40527624BE70030FFAA /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AB40427624BE60030FFAA /* CustomTabBar.swift */; };
 		3F5C8D5D2760F0B30045642C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C8D5C2760F0B30045642C /* HomeView.swift */; };
 		3F5C8D612760FA600045642C /* AgentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C8D602760FA600045642C /* AgentsModel.swift */; };
 		3F5C8D632760FAD90045642C /* ValAgents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C8D622760FAD90045642C /* ValAgents.swift */; };
@@ -24,6 +28,10 @@
 		3F4AB3F8276210760030FFAA /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		3F4AB3FA276214280030FFAA /* ImageLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadingView.swift; sourceTree = "<group>"; };
 		3F4AB3FC27621C7D0030FFAA /* UiScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiScreen.swift; sourceTree = "<group>"; };
+		3F4AB3FE276232DA0030FFAA /* MapsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsView.swift; sourceTree = "<group>"; };
+		3F4AB400276232E90030FFAA /* AgentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentsView.swift; sourceTree = "<group>"; };
+		3F4AB402276233000030FFAA /* ArsenalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArsenalView.swift; sourceTree = "<group>"; };
+		3F4AB40427624BE60030FFAA /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		3F5C8D5C2760F0B30045642C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3F5C8D602760FA600045642C /* AgentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentsModel.swift; sourceTree = "<group>"; };
 		3F5C8D622760FAD90045642C /* ValAgents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValAgents.swift; sourceTree = "<group>"; };
@@ -63,6 +71,10 @@
 				3F8932BC2760E3BB00435E8A /* Valorant_AgentsApp.swift */,
 				3F5C8D5C2760F0B30045642C /* HomeView.swift */,
 				3F4AB3FA276214280030FFAA /* ImageLoadingView.swift */,
+				3F4AB3FE276232DA0030FFAA /* MapsView.swift */,
+				3F4AB400276232E90030FFAA /* AgentsView.swift */,
+				3F4AB402276233000030FFAA /* ArsenalView.swift */,
+				3F4AB40427624BE60030FFAA /* CustomTabBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,14 +204,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F4AB3FF276232DB0030FFAA /* MapsView.swift in Sources */,
 				3F5C8D5D2760F0B30045642C /* HomeView.swift in Sources */,
 				3F8932BD2760E3BB00435E8A /* Valorant_AgentsApp.swift in Sources */,
 				3FD89FDA27612D7E00A34662 /* ImageLoader.swift in Sources */,
+				3F4AB40527624BE70030FFAA /* CustomTabBar.swift in Sources */,
 				3F5C8D632760FAD90045642C /* ValAgents.swift in Sources */,
 				3F5C8D612760FA600045642C /* AgentsModel.swift in Sources */,
 				3F4AB3FB276214280030FFAA /* ImageLoadingView.swift in Sources */,
 				3F4AB3F9276210760030FFAA /* ApiError.swift in Sources */,
+				3F4AB401276232E90030FFAA /* AgentsView.swift in Sources */,
 				3F4AB3FD27621C7D0030FFAA /* UiScreen.swift in Sources */,
+				3F4AB403276233000030FFAA /* ArsenalView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

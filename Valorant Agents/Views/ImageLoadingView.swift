@@ -19,14 +19,14 @@ struct ImageLoadingView: View {
         Group {
             
             if imageloader.image != nil {
-                Image(uiImage: imageloader.image!).resizable()
+                Image(uiImage: imageloader.image!).resizable().aspectRatio(contentMode: .fill).frame(width: UIScreen.screenWidth  / 1.8)
             }else if (imageloader.errorMessage != nil)
             {
                 Text(imageloader.errorMessage!).foregroundColor(valColor)
                    
             }else{
                 ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: valColor))
+                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
             }
             
         }.onAppear {
