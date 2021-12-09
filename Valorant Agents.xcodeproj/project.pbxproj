@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F4AB3F9276210760030FFAA /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AB3F8276210760030FFAA /* ApiError.swift */; };
+		3F4AB3FB276214280030FFAA /* ImageLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AB3FA276214280030FFAA /* ImageLoadingView.swift */; };
+		3F4AB3FD27621C7D0030FFAA /* UiScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4AB3FC27621C7D0030FFAA /* UiScreen.swift */; };
 		3F5C8D5D2760F0B30045642C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C8D5C2760F0B30045642C /* HomeView.swift */; };
 		3F5C8D612760FA600045642C /* AgentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C8D602760FA600045642C /* AgentsModel.swift */; };
-		3F5C8D632760FAD90045642C /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C8D622760FAD90045642C /* Network.swift */; };
+		3F5C8D632760FAD90045642C /* ValAgents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5C8D622760FAD90045642C /* ValAgents.swift */; };
 		3F8932BD2760E3BB00435E8A /* Valorant_AgentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8932BC2760E3BB00435E8A /* Valorant_AgentsApp.swift */; };
 		3F8932C12760E3BD00435E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8932C02760E3BD00435E8A /* Assets.xcassets */; };
 		3F8932C42760E3BD00435E8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8932C32760E3BD00435E8A /* Preview Assets.xcassets */; };
@@ -18,9 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F4AB3F8276210760030FFAA /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		3F4AB3FA276214280030FFAA /* ImageLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoadingView.swift; sourceTree = "<group>"; };
+		3F4AB3FC27621C7D0030FFAA /* UiScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiScreen.swift; sourceTree = "<group>"; };
 		3F5C8D5C2760F0B30045642C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		3F5C8D602760FA600045642C /* AgentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentsModel.swift; sourceTree = "<group>"; };
-		3F5C8D622760FAD90045642C /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		3F5C8D622760FAD90045642C /* ValAgents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValAgents.swift; sourceTree = "<group>"; };
 		3F8932B92760E3BB00435E8A /* Valorant Agents.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Valorant Agents.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F8932BC2760E3BB00435E8A /* Valorant_AgentsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Valorant_AgentsApp.swift; sourceTree = "<group>"; };
 		3F8932C02760E3BD00435E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -41,6 +47,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F4AB3F527620EF80030FFAA /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3FD89FD927612D7E00A34662 /* ImageLoader.swift */,
+				3F5C8D622760FAD90045642C /* ValAgents.swift */,
+				3F4AB3F8276210760030FFAA /* ApiError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3F4AB3F627620F000030FFAA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3F8932BC2760E3BB00435E8A /* Valorant_AgentsApp.swift */,
+				3F5C8D5C2760F0B30045642C /* HomeView.swift */,
+				3F4AB3FA276214280030FFAA /* ImageLoadingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3F4AB3F727620F180030FFAA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3F5C8D602760FA600045642C /* AgentsModel.swift */,
+				3F4AB3FC27621C7D0030FFAA /* UiScreen.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3F5C8D5A2760F01F0045642C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,14 +104,12 @@
 		3F8932BB2760E3BB00435E8A /* Valorant Agents */ = {
 			isa = PBXGroup;
 			children = (
-				3F5C8D602760FA600045642C /* AgentsModel.swift */,
-				3F8932BC2760E3BB00435E8A /* Valorant_AgentsApp.swift */,
+				3F4AB3F727620F180030FFAA /* Models */,
+				3F4AB3F627620F000030FFAA /* Views */,
+				3F4AB3F527620EF80030FFAA /* Networking */,
 				3F8932C02760E3BD00435E8A /* Assets.xcassets */,
 				3F8932C52760E3BD00435E8A /* Info.plist */,
 				3F8932C22760E3BD00435E8A /* Preview Content */,
-				3F5C8D5C2760F0B30045642C /* HomeView.swift */,
-				3F5C8D622760FAD90045642C /* Network.swift */,
-				3FD89FD927612D7E00A34662 /* ImageLoader.swift */,
 			);
 			path = "Valorant Agents";
 			sourceTree = "<group>";
@@ -162,8 +195,11 @@
 				3F5C8D5D2760F0B30045642C /* HomeView.swift in Sources */,
 				3F8932BD2760E3BB00435E8A /* Valorant_AgentsApp.swift in Sources */,
 				3FD89FDA27612D7E00A34662 /* ImageLoader.swift in Sources */,
-				3F5C8D632760FAD90045642C /* Network.swift in Sources */,
+				3F5C8D632760FAD90045642C /* ValAgents.swift in Sources */,
 				3F5C8D612760FA600045642C /* AgentsModel.swift in Sources */,
+				3F4AB3FB276214280030FFAA /* ImageLoadingView.swift in Sources */,
+				3F4AB3F9276210760030FFAA /* ApiError.swift in Sources */,
+				3F4AB3FD27621C7D0030FFAA /* UiScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

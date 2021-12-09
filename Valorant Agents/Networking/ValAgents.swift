@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 
-class Network: ObservableObject {
+class ValAgents: ObservableObject {
     @Published var agents: AgentsModel = AgentsModel(status: 0, data: [])
     
-    func getUsers() {
+    func getAgents() {
         guard let url = URL(string: "https://valorant-api.com/v1/agents") else { fatalError("Missing URL") }
         
         let urlRequest = URLRequest(url: url)
