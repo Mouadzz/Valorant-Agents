@@ -19,7 +19,7 @@ struct ImageLoadingView: View {
         Group {
             
             if imageloader.image != nil {
-                Image(uiImage: imageloader.image!).resizable().aspectRatio(contentMode: .fill).frame(width: UIScreen.screenWidth  / 1.8)
+                Image(uiImage: imageloader.image!).resizable().aspectRatio(contentMode: .fill)
             }else if (imageloader.errorMessage != nil)
             {
                 Text(imageloader.errorMessage!).foregroundColor(valColor)

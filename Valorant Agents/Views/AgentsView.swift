@@ -10,24 +10,22 @@ import SwiftUI
 struct AgentsView: View {
     
     @EnvironmentObject var valAgents: ValAgents
-    
     let cardWidth:Double = UIScreen.screenWidth  / 1.8
     var HPadding:Double =  ((UIScreen.screenWidth  - (UIScreen.screenWidth  / 1.8)) / 2)
     
     var body: some View {
         ScrollView(.horizontal) {
-            HStack(spacing: UIScreen.screenWidth * 0.01){
+            HStack(spacing: UIScreen.screenWidth * 0.013){
                 ForEach (self.valAgents.agents.data.indices, id:\.self) { index in
                     let agent = self.valAgents.agents.data[index] as Datum
+                    let agentColor:Color = getAgentPoster(name: agent.displayName).color
+                    let agentPoster:String = getAgentPoster(name: agent.displayName).url
                     if agent.fullPortrait != nil{
                         GeometryReader { geometry in
                             ZStack{
-                                Color.purple.brightness(-0.5)
-                                VStack{
-                                    Text("\(geometry.frame(in: .global).minX)").foregroundColor(.white)
-
-                                    ImageLoadingView(url: agent.fullPortrait!)
-                                }
+                                
+                                LinearGradient(gradient: Gradient(colors: [agentColor, agentColor.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
+                                ImageLoadingView(url: agentPoster).padding().frame(width: cardWidth)
                                 
                             }.cornerRadius(20)
                                 .rotation3DEffect(Angle(degrees:(Double(geometry.frame(in: .global).minX) - HPadding) / -12), axis: (x: 0, y: 1.0, z: 0))

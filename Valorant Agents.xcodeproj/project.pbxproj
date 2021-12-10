@@ -20,6 +20,8 @@
 		3F8932BD2760E3BB00435E8A /* Valorant_AgentsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8932BC2760E3BB00435E8A /* Valorant_AgentsApp.swift */; };
 		3F8932C12760E3BD00435E8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8932C02760E3BD00435E8A /* Assets.xcassets */; };
 		3F8932C42760E3BD00435E8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F8932C32760E3BD00435E8A /* Preview Assets.xcassets */; };
+		3FCB2E65276368E6001B11E4 /* AgentPosters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB2E64276368E6001B11E4 /* AgentPosters.swift */; };
+		3FCB2E6727636E82001B11E4 /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB2E6627636E82001B11E4 /* ColorHex.swift */; };
 		3FD89FD827612C2200A34662 /* Valorant.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3FD89FD727612C2200A34662 /* Valorant.ttf */; };
 		3FD89FDA27612D7E00A34662 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD89FD927612D7E00A34662 /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +42,8 @@
 		3F8932C02760E3BD00435E8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F8932C32760E3BD00435E8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3F8932C52760E3BD00435E8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FCB2E64276368E6001B11E4 /* AgentPosters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentPosters.swift; sourceTree = "<group>"; };
+		3FCB2E6627636E82001B11E4 /* ColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHex.swift; sourceTree = "<group>"; };
 		3FD89FD727612C2200A34662 /* Valorant.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Valorant.ttf; sourceTree = "<group>"; };
 		3FD89FD927612D7E00A34662 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +88,8 @@
 			children = (
 				3F5C8D602760FA600045642C /* AgentsModel.swift */,
 				3F4AB3FC27621C7D0030FFAA /* UiScreen.swift */,
+				3FCB2E64276368E6001B11E4 /* AgentPosters.swift */,
+				3FCB2E6627636E82001B11E4 /* ColorHex.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -207,7 +213,9 @@
 				3F4AB3FF276232DB0030FFAA /* MapsView.swift in Sources */,
 				3F5C8D5D2760F0B30045642C /* HomeView.swift in Sources */,
 				3F8932BD2760E3BB00435E8A /* Valorant_AgentsApp.swift in Sources */,
+				3FCB2E65276368E6001B11E4 /* AgentPosters.swift in Sources */,
 				3FD89FDA27612D7E00A34662 /* ImageLoader.swift in Sources */,
+				3FCB2E6727636E82001B11E4 /* ColorHex.swift in Sources */,
 				3F4AB40527624BE70030FFAA /* CustomTabBar.swift in Sources */,
 				3F5C8D632760FAD90045642C /* ValAgents.swift in Sources */,
 				3F5C8D612760FA600045642C /* AgentsModel.swift in Sources */,
