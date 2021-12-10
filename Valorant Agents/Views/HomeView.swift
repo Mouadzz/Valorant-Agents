@@ -41,8 +41,7 @@ struct HomeView: View {
                     
                     // Put Cache capacity to half GB
                     URLCache.shared.memoryCapacity = 1024 * 1024 * 512
-                }.frame(height: UIScreen.screenHeight  / 1.7
-                )
+                }.frame(height: UIScreen.screenHeight  / 1.7)
             }
             
         }
