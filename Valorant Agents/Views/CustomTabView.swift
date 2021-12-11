@@ -42,14 +42,19 @@ struct CustomTopTabBar: View {
                     }
             }
             RoundedRectangle(cornerRadius: 30).fill(Color("myGray")).frame(width: UIScreen.screenWidth - 50, height: 1)
-        }
-//        .alert("Coming Soon", isPresented:$showingAlert) {
-//            Button("OK", role: .cancel) {
-//                withAnimation {
-//                    onButtonTapped(index: 0)
-//                }
-//            }
-//        }
+        }.alert(isPresented: $showingAlert) {
+            Alert(
+                title: Text("Coming soon"),
+                dismissButton: .default(
+                    Text("OK"),
+                    action: {
+                        withAnimation {
+                            onButtonTapped(index: 0)
+                        }
+                    }
+                )
+            )
+        } 
     }
     
     private func onButtonTapped(index: Int) {

@@ -15,24 +15,27 @@ struct HomeView: View {
     @State var tabIndex = 0
     
     var body: some View {
-        ZStack{
-            Image("background").resizable().aspectRatio(contentMode: .fill).brightness(-0.065).ignoresSafeArea()
-            
-            VStack (alignment: .center){
-                Image("logo").resizable().aspectRatio(contentMode: .fit).frame(width: UIScreen.screenWidth / 2.5).padding(.bottom, 5).padding(.top, UIScreen.screenHeight * 0.05)
+        NavigationView{
+            ZStack{
+                Image("background").resizable().aspectRatio(contentMode: .fill).brightness(-0.065).ignoresSafeArea()
                 
-                Text("Choose Your").font(Font.custom("Valorant", size: 25)).foregroundColor(.white)
-                
-                HStack{
-                    Text("Favourite").font(Font.custom("Valorant", size: 25)).foregroundColor(.white)
-                    Text("Agents").font(Font.custom("Valorant", size: 25)).foregroundColor(valColor)
+                VStack (alignment: .center){
+                    Image("logo").resizable().aspectRatio(contentMode: .fit)
+                    
+                    Text("Choose Your").font(Font.custom("Valorant", size: 25)).foregroundColor(.white)
+                    
+                    HStack{
+                        Text("Favourite").font(Font.custom("Valorant", size: 25)).foregroundColor(.white)
+                        Text("Agents").font(Font.custom("Valorant", size: 25)).foregroundColor(valColor)
+                    }
+                    
+                    CustomTopTabBar(tabIndex: $tabIndex).padding(.top, UIScreen.screenHeight * 0.06)
+                    
+                    AgentsView().environmentObject(valAgents).frame(height: UIScreen.screenHeight  / 1.7)
                 }
-                
-                CustomTopTabBar(tabIndex: $tabIndex).padding(.top, UIScreen.screenHeight * 0.06)
-                
-                AgentsView().environmentObject(valAgents).frame(height: UIScreen.screenHeight  / 1.7)
             }
         }
+        .hiddenNavigationBarStyle()
     }
 }
 
@@ -42,3 +45,16 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
+struct HiddenNavigationBar: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarHidden(true)
+    }
+}
+
+extension View {
+    func hiddenNavigationBarStyle() -> some View {
+        modifier( HiddenNavigationBar() )
+    }
+}
