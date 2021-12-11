@@ -28,7 +28,6 @@ struct AgentsView: View {
                                 ImageLoadingView(url: agentPoster).padding().frame(width: cardWidth)
                                 
                                 ZStack {
-//
                                     VStack{
                                         Text(agent.displayName).font(Font.custom("Valorant", size: 20)).foregroundColor(.white)
                                         Text("\(agent.role!.displayName)" as String).font(Font.custom("Valorant", size: 10)).foregroundColor(.white)
