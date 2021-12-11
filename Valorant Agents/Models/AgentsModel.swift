@@ -1,14 +1,7 @@
-//
-//  AgentsModel.swift
-//  Valorant Agents
-//
-//  Created by Mouaad Lasritene on 8/12/2021.
-//
-
 // This file was generated from JSON Schema using quicktype, do not modify it directly.
 // To parse the JSON, add this file to your project and do:
 //
-//   let AgentsModel = try? newJSONDecoder().decode(AgentsModel.self, from: jsonData)
+//   let agentsModel = try? newJSONDecoder().decode(AgentsModel.self, from: jsonData)
 
 import Foundation
 
@@ -93,3 +86,4 @@ struct MediaList: Codable {
     let wwise: String
     let wave: String
 }
+

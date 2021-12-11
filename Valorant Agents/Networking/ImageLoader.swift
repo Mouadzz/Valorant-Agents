@@ -1,6 +1,9 @@
-
-
-
+//
+//  ImageLoader.swift
+//  Valorant Agents
+//
+//  Created by Mouaad Lasritene on 11/12/2021.
+//
 
 import Foundation
 import UIKit

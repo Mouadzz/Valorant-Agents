@@ -11,7 +11,7 @@ struct MapsView: View {
     var body: some View {
         ZStack{
             
-            RoundedRectangle(cornerRadius: 20).fill(.blue).padding(.horizontal, 5)
+            RoundedRectangle(cornerRadius: 20).fill(Color.blue).padding(.horizontal, 5)
             Text("Maps View")
             
         }.frame(width: 250)

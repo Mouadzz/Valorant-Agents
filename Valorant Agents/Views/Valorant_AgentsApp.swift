@@ -1,8 +1,8 @@
 //
-//  Valorant_AgentsApp.swift
+//  main.swift
 //  Valorant Agents
 //
-//  Created by Mouaad Lasritene on 8/12/2021.
+//  Created by Mouaad Lasritene on 11/12/2021.
 //
 
 import SwiftUI

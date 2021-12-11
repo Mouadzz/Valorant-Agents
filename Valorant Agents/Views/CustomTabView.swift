@@ -1,9 +1,9 @@
-    //
-    //  CustomTabBar.swift
-    //  Valorant Agents
-    //
-    //  Created by Mouaad Lasritene on 9/12/2021.
-    //
+//
+//  CustomTabView.swift
+//  Valorant Agents
+//
+//  Created by Mouaad Lasritene on 11/12/2021.
+//
 
 import SwiftUI
 
@@ -32,9 +32,9 @@ struct CustomTopTabBar: View {
                         showingAlert = true
                         onButtonTapped(index: 1)
                     }
-
+                
                 RoundedRectangle(cornerRadius: 30).fill(Color("myGray")).frame(width: 1.2, height: 20)
-
+                
                 TabBarButton(text: "Arsenal", isSelected: .constant(tabIndex == 2))
                     .onTapGesture {
                         showingAlert = true
@@ -42,13 +42,14 @@ struct CustomTopTabBar: View {
                     }
             }
             RoundedRectangle(cornerRadius: 30).fill(Color("myGray")).frame(width: UIScreen.screenWidth - 50, height: 1)
-        }.alert("Coming Soon", isPresented:$showingAlert) {
-            Button("OK", role: .cancel) {
-                withAnimation {
-                    onButtonTapped(index: 0)
-                }
-            }
         }
+//        .alert("Coming Soon", isPresented:$showingAlert) {
+//            Button("OK", role: .cancel) {
+//                withAnimation {
+//                    onButtonTapped(index: 0)
+//                }
+//            }
+//        }
     }
     
     private func onButtonTapped(index: Int) {

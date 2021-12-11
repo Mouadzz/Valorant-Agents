@@ -23,7 +23,7 @@ struct ImageLoadingView: View {
             }else if (imageloader.errorMessage != nil)
             {
                 Text(imageloader.errorMessage!).foregroundColor(valColor)
-                   
+                
             }else{
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle(tint: .white))
@@ -43,3 +43,4 @@ struct ImageLoadingView_Previews: PreviewProvider {
         ImageLoadingView(url: nil)
     }
 }
+
