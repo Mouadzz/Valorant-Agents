@@ -12,17 +12,23 @@ struct AgentsView: View {
     @EnvironmentObject var valAgents: ValAgents
     let cardWidth:CGFloat = UIScreen.screenWidth  / 1.8
     var HPadding:CGFloat =  ((UIScreen.screenWidth  - (UIScreen.screenWidth  / 1.8)) / 2)
+    @EnvironmentObject var router:DetailViewModel
     
     var body: some View {
         ScrollView(.horizontal) {
             HStack(spacing: UIScreen.screenWidth * 0.013){
-                ForEach (self.valAgents.agents.data.indices, id:\.self) { index in
+                ForEach (self.valAgents.agents.data.indices.reversed(), id:\.self) { index in
                     let agent = self.valAgents.agents.data[index] as Datum
                     let agentColor:Color = getAgentPoster(name: agent.displayName).color
                     let agentPoster:String = getAgentPoster(name: agent.displayName).url
                     if agent.fullPortrait != nil{
                         
-                        NavigationLink(destination: AgentBioView(agent: agent)) {
+                        Button {
+                            withAnimation (.spring()) {
+                                router.currentDetailView = agent
+                                router.showDetail = true
+                            }
+                        } label: {
                             GeometryReader { geometry in
                                 ZStack{
                                     LinearGradient(gradient: Gradient(colors: [agentColor, agentColor.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
@@ -44,18 +50,11 @@ struct AgentsView: View {
                                 .rotation3DEffect(Angle(degrees:(Double(geometry.frame(in: .global).minX) - Double(HPadding)) / -12), axis: (x: 0, y: 1.0, z: 0))
                             }
                             .frame(width: cardWidth)
-                        }
-                        
+                        }.buttonStyle(CardButtonStyle())
                     }
                 }
             }.frame(maxHeight: .infinity).padding(.vertical, UIScreen.screenHeight * 0.05).padding(.horizontal, HPadding)
         }.frame(width: UIScreen.screenWidth)
-    }
-}
-
-struct AgentsView_Previews: PreviewProvider {
-    static var previews: some View {
-        AgentsView().environmentObject(ValAgents())
     }
 }
 
@@ -80,5 +79,13 @@ struct RoundedCorner: Shape {
     func path(in rect: CGRect) -> Path {
         let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
         return Path(path.cgPath)
+    }
+}
+
+
+struct CardButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        return configuration.label.scaleEffect(configuration.isPressed ? 0.96 : 1)
+            .animation(.easeIn, value: configuration.isPressed)
     }
 }

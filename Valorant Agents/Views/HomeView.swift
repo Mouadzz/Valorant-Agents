@@ -13,14 +13,15 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject var valAgents: ValAgents
     @State var tabIndex = 0
+    var router = DetailViewModel()
+
     
     var body: some View {
-        NavigationView{
             ZStack{
                 Image("background").resizable().aspectRatio(contentMode: .fill).brightness(-0.065).ignoresSafeArea()
                 
                 VStack (alignment: .center){
-                    Image("logo").resizable().aspectRatio(contentMode: .fit)
+                    Image("logo").resizable().aspectRatio(contentMode: .fit).frame(width: UIScreen.screenWidth / 2.5).padding(.bottom, 5).padding(.top, UIScreen.screenHeight * 0.05)
                     
                     Text("Choose Your").font(Font.custom("Valorant", size: 25)).foregroundColor(.white)
                     
@@ -31,11 +32,12 @@ struct HomeView: View {
                     
                     CustomTopTabBar(tabIndex: $tabIndex).padding(.top, UIScreen.screenHeight * 0.06)
                     
-                    AgentsView().environmentObject(valAgents).frame(height: UIScreen.screenHeight  / 1.7)
+                    AgentsView().environmentObject(valAgents).environmentObject(router).frame(height: UIScreen.screenHeight  / 1.7)
                 }
             }
-        }
-        .hiddenNavigationBarStyle()
+            .overlay(
+                DetailView().environmentObject(router)
+            )
     }
 }
 
@@ -45,16 +47,3 @@ struct HomeView_Previews: PreviewProvider {
     }
 }
 
-struct HiddenNavigationBar: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .navigationBarTitle("", displayMode: .inline)
-            .navigationBarHidden(true)
-    }
-}
-
-extension View {
-    func hiddenNavigationBarStyle() -> some View {
-        modifier( HiddenNavigationBar() )
-    }
-}
