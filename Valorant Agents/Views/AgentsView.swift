@@ -13,7 +13,8 @@ struct AgentsView: View {
     let cardWidth:CGFloat = UIScreen.screenWidth  / 1.8
     var HPadding:CGFloat =  ((UIScreen.screenWidth  - (UIScreen.screenWidth  / 1.8)) / 2)
     @EnvironmentObject var router:DetailViewModel
-    
+    var animation:Namespace.ID
+
     var body: some View {
         ScrollView(.horizontal) {
             HStack(spacing: UIScreen.screenWidth * 0.013){
@@ -22,7 +23,6 @@ struct AgentsView: View {
                     let agentColor:Color = getAgentPoster(name: agent.displayName).color
                     let agentPoster:String = getAgentPoster(name: agent.displayName).url
                     if agent.fullPortrait != nil{
-                        
                         Button {
                             withAnimation (.spring()) {
                                 router.currentDetailView = agent
@@ -35,6 +35,7 @@ struct AgentsView: View {
                                     ImageLoadingView(url: agentPoster)
                                         .padding()
                                         .frame(width: cardWidth)
+                                        .matchedGeometryEffect(id: agent.uuid + "Poster", in: animation)
                                     VStack{
                                         Spacer()
                                         VStack{

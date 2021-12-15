@@ -14,7 +14,7 @@ struct HomeView: View {
     @EnvironmentObject var valAgents: ValAgents
     @State var tabIndex = 0
     var router = DetailViewModel()
-
+    @Namespace var animation
     
     var body: some View {
             ZStack{
@@ -32,11 +32,11 @@ struct HomeView: View {
                     
                     CustomTopTabBar(tabIndex: $tabIndex).padding(.top, UIScreen.screenHeight * 0.06)
                     
-                    AgentsView().environmentObject(valAgents).environmentObject(router).frame(height: UIScreen.screenHeight  / 1.7)
+                    AgentsView(animation: animation).environmentObject(valAgents).environmentObject(router).frame(height: UIScreen.screenHeight  / 1.7)
                 }
             }
             .overlay(
-                DetailView().environmentObject(router)
+                DetailView(animation: animation).environmentObject(router)
             )
     }
 }
