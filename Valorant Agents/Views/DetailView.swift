@@ -13,12 +13,13 @@ struct DetailView: View {
     var animation:Namespace.ID
     @State var offset: CGFloat = 0
     var bottomSheetHeight:CGFloat = UIScreen.screenHeight / 2
+    @State var shouldScroll: Bool = false
     
     var body: some View {
         if let agent = router.currentDetailView, router.showDetail {
             let agentColor:Color = getAgentPoster(name: agent.displayName).color
             let agentPoster:String = getAgentPoster(name: agent.displayName).url
-            ZStack (alignment: Alignment(horizontal: .center, vertical: .bottom), content:{
+            ZStack (content:{
                 agentColor
                 ImageLoadingView(url: agentPoster)
                     .padding()
@@ -26,47 +27,46 @@ struct DetailView: View {
                     .matchedGeometryEffect(id: agent.uuid + "Poster", in: animation)
                 
                 GeometryReader{ reader in
-                    
-                    VStack{
-                        BottomSheet().offset(y: reader.frame(in: .global).height - bottomSheetHeight)
-                            .offset(y: offset)
-                            .gesture(DragGesture().onChanged({ (val) in
-                                withAnimation (Animation.easeIn(duration: 0.2)) {
-                                    if val.startLocation.y > reader.frame(in: .global).midX{
-                                        if val.translation.height < 0 && offset > (-reader.frame(in: .global).height + bottomSheetHeight)
-                                        {
-                                            offset = val.translation.height
-                                        }
-                                    }
-                                    if val.startLocation.y < reader.frame(in: .global).midX{
-                                        if val.translation.height > 0 && offset < 0
-                                        {
-                                            offset = (-reader.frame(in: .global).height + bottomSheetHeight) + val.translation.height
-                                        }
+                    BottomSheet(shouldScroll: $shouldScroll).environmentObject(router).offset(y: reader.frame(in: .global).height - bottomSheetHeight)
+                        .offset(y: offset)
+                        .gesture(DragGesture().onChanged({ (val) in
+                            withAnimation (Animation.easeIn(duration: 0.2)) {
+                                if val.startLocation.y > reader.frame(in: .global).midX{
+                                    if val.translation.height < 0 && offset > (-reader.frame(in: .global).height + bottomSheetHeight)
+                                    {
+                                        offset = val.translation.height
                                     }
                                 }
-                            }).onEnded({ (val) in
-                                withAnimation (Animation.easeIn(duration: 0.2)) {
-                                    if val.startLocation.y > reader.frame(in: .global).midX{
-                                        if -val.translation.height > reader.frame(in: .global).midX{
-                                            offset = (-reader.frame(in: .global).height + bottomSheetHeight)
-                                            return
-                                        }
-                                        offset = 0
-                                    }
-                                    if val.startLocation.y < reader.frame(in: .global).midX{
-                                        if val.translation.height < reader.frame(in: .global).midX{
-                                            offset = (-reader.frame(in: .global).height + bottomSheetHeight)
-                                            return
-                                        }
-                                        offset = 0
+                                if val.startLocation.y < reader.frame(in: .global).midX{
+                                    if val.translation.height > 0 && offset < 0
+                                    {
+                                        offset = (-reader.frame(in: .global).height + bottomSheetHeight) + val.translation.height
                                     }
                                 }
-                            }))
-                    }
+                            }
+                        }).onEnded({ (val) in
+                            withAnimation (Animation.easeIn(duration: 0.2)) {
+                                if val.startLocation.y > reader.frame(in: .global).midX{
+                                    if -val.translation.height > reader.frame(in: .global).midX{
+                                        offset = (-reader.frame(in: .global).height + bottomSheetHeight)
+                                        shouldScroll = true
+                                        return
+                                    }
+                                    offset = 0
+                                }
+                                if val.startLocation.y < reader.frame(in: .global).midX{
+                                    if val.translation.height < reader.frame(in: .global).midX{
+                                        offset = (-reader.frame(in: .global).height + bottomSheetHeight)
+                                        return
+                                    }
+                                    shouldScroll = false
+                                    offset = 0
+                                }
+                            }
+                        }))
                 }
-                
-            }).overlay(
+            })
+            .overlay(
                 Button(action: {
                     withAnimation {
                         router.showDetail = false
