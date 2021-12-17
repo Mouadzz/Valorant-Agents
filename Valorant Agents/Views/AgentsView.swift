@@ -10,8 +10,8 @@ import SwiftUI
 struct AgentsView: View {
     
     @EnvironmentObject var valAgents: ValAgents
-    let cardWidth:CGFloat = UIScreen.screenWidth  / 1.8
-    var HPadding:CGFloat =  ((UIScreen.screenWidth  - (UIScreen.screenWidth  / 1.8)) / 2)
+    let cardWidth:CGFloat = UIScreen.screenWidth  / 1.6
+    var HPadding:CGFloat =  ((UIScreen.screenWidth  - (UIScreen.screenWidth  / 1.6)) / 2)
     @EnvironmentObject var router:DetailViewModel
     var animation:Namespace.ID
 

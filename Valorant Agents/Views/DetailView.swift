@@ -26,13 +26,13 @@ struct DetailView: View {
                     .foregroundColor(.white.opacity(0.1)).padding(.top, UIScreen.screenHeight * 0.1).multilineTextAlignment(.trailing).frame(width: UIScreen.screenWidth, alignment: .trailing)
                 ImageLoadingView(url: agentPoster, isColored: false)
                     .padding()
-                    .frame(width:  UIScreen.screenWidth  / 1.8)
+                    .frame(width:  UIScreen.screenWidth  / 1.6)
                     .matchedGeometryEffect(id: agent.uuid + "Poster", in: animation)
                     .frame(height: UIScreen.screenHeight  / 1.5)
-                    .padding(.top, UIScreen.screenHeight * 0.07)
+                    .padding(.top, UIScreen.screenHeight * 0.05)
                 
                 VStack(alignment: HorizontalAlignment.leading, spacing: 0){
-                    Text(agent.displayName).font(Font.custom("Valorant", size: 60))
+                    Text(agent.displayName).font(Font.custom("Valorant", size: 60)).lineLimit(1)
                         .foregroundColor(.white).padding(.leading, 25)
                     HStack (alignment: VerticalAlignment.bottom, content: {
                         ImageLoadingView(url: agent.role?.displayIcon, isColored: false)
@@ -40,13 +40,11 @@ struct DetailView: View {
                         Text(agent.role!.displayName.rawValue).font(Font.custom("Valorant", size: 14)).foregroundColor(.white)
                     }).padding(.leading, 25)
                 }
-                .frame(width: UIScreen.screenWidth, alignment: .leading)
-                .padding(.top, bottomSheetHeight - 40)
-                
+                .frame(width: UIScreen.screenWidth, alignment: .leading).offset(y: bottomSheetHeight - UIScreen.screenHeight * 0.04)
                 GeometryReader{ reader in
                     BottomSheet(shouldScroll: $shouldScroll).environmentObject(router).offset(y: reader.frame(in: .global).height - bottomSheetHeight)
                         .offset(y: offset)
-                        .padding(.top)
+                        .padding(.top, 50)
                         .gesture(DragGesture().onChanged({ (val) in
                             withAnimation (Animation.easeIn(duration: 0.2)) {
                                 if val.startLocation.y > reader.frame(in: .global).midX{
@@ -82,12 +80,13 @@ struct DetailView: View {
                                 }
                             }
                         }))
-                }
+                }.ignoresSafeArea(.all, edges: .bottom).frame(width: UIScreen.screenWidth)
             })
             .overlay(
                 Button(action: {
                     withAnimation {
                         router.showDetail = false
+                        offset = 0
                     }
                 }, label: {
                     Image(systemName: "xmark")
