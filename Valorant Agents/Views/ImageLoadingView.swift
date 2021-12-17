@@ -9,9 +9,11 @@ import SwiftUI
 
 struct ImageLoadingView: View {
     @StateObject var imageloader: ImageLoader
+    var isColored: Bool
     
-    init (url: String?){
+    init (url: String?, isColored: Bool){
         self._imageloader = StateObject(wrappedValue: ImageLoader(url: url))
+        self.isColored = isColored
     }
     
     var body: some View {
@@ -19,10 +21,14 @@ struct ImageLoadingView: View {
         Group {
             
             if imageloader.image != nil {
-                Image(uiImage: imageloader.image!).resizable().aspectRatio(contentMode: .fill)
+                if isColored {
+                    Image(uiImage: imageloader.image!).resizable().renderingMode(.template).aspectRatio(contentMode: .fill)
+                }else{
+                    Image(uiImage: imageloader.image!).resizable().aspectRatio(contentMode: .fill)
+                }
             }else if (imageloader.errorMessage != nil)
             {
-                Text(imageloader.errorMessage!).foregroundColor(valColor)
+//                Text(imageloader.errorMessage!).foregroundColor(valColor)
                 
             }else{
                 ProgressView()
@@ -37,10 +43,3 @@ struct ImageLoadingView: View {
         
     }
 }
-
-struct ImageLoadingView_Previews: PreviewProvider {
-    static var previews: some View {
-        ImageLoadingView(url: nil)
-    }
-}
-

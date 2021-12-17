@@ -32,7 +32,7 @@ struct AgentsView: View {
                             GeometryReader { geometry in
                                 ZStack{
                                     LinearGradient(gradient: Gradient(colors: [agentColor, agentColor.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
-                                    ImageLoadingView(url: agentPoster)
+                                    ImageLoadingView(url: agentPoster,  isColored: false)
                                         .padding()
                                         .frame(width: cardWidth)
                                         .matchedGeometryEffect(id: agent.uuid + "Poster", in: animation)

@@ -21,6 +21,7 @@ struct BottomSheet: View {
     var body: some View {
         
         if let agent = router.currentDetailView, router.showDetail {
+            let agentColor:Color = getAgentPoster(name: agent.displayName).color
             VStack (content: {
                 Capsule().fill(Color.white.opacity(0.7))
                     .frame(width: 100, height: 3)
@@ -28,30 +29,27 @@ struct BottomSheet: View {
                 ScrollView(axes, showsIndicators: false, content: {
                     
                     VStack(alignment: .leading){
-                        HStack (alignment: .center, content: {
-                            ImageLoadingView(url: agent.abilities[3].displayIcon)
-                                .frame(width: 25, height: 25)
-                            Text("BIO").font(Font.custom("Valorant", size: 30))
-                                .foregroundColor(.white)
-                        }).padding(.bottom, 5)
+                        Text("BIO").font(Font.custom("Valorant", size: 28))
+                            .foregroundColor(.white)
+                            .padding(.bottom, 5)
                         
                         
-                        Text(agent.datumDescription).font(Font.custom("Valorant", size: 15))
+                        Text(agent.datumDescription).font(Font.custom("Valorant", size: 13))
                             .foregroundColor(.white)
                             .padding(.bottom, 20)
                         
-                        Text("Special abilities").font(Font.custom("Valorant", size: 30))
+                        Text("Special abilities").font(Font.custom("Valorant", size: 28))
                             .foregroundColor(.white).padding(.bottom, 5)
                         ForEach (agent.abilities.indices, id:\.self) { index in
                             VStack (alignment: .leading,  content: {
-                                HStack (alignment:.center , content: {
-                                    ImageLoadingView(url: agent.abilities[index].displayIcon)
-                                        .frame(width: 30, height: 30)
-                                    Text(agent.abilities[index].displayName).font(Font.custom("Valorant", size: 20)).foregroundColor(.white).padding(.leading, 5)
+                                HStack (alignment: VerticalAlignment.center , content: {
+                                    ImageLoadingView(url: agent.abilities[index].displayIcon, isColored: true)
+                                        .frame(width: 30, height: 30).foregroundColor(agentColor)
+                                    Text(agent.abilities[index].displayName).font(Font.custom("Valorant", size: 18)).foregroundColor(.white).padding(.leading, 5)
                                     Spacer()
                                 }).padding(.bottom, 3)
-                                Text(agent.abilities[index].abilityDescription).font(Font.custom("Valorant", size: 15)).foregroundColor(.white).lineLimit(nil)
-                            }).padding().border(Color.white, width: 1).cornerRadius(20)
+                                Text(agent.abilities[index].abilityDescription).font(Font.custom("Valorant", size: 13)).foregroundColor(.white).lineLimit(nil)
+                            }).padding().border(agentColor, width: 1).cornerRadius(20)
                         }
                         
                     }.padding(.top, 15)
@@ -61,7 +59,7 @@ struct BottomSheet: View {
             }).padding(.horizontal, 25).padding(.bottom, 15)
             .frame(width: UIScreen.screenWidth)
             .background(VisualEffectView(effect: UIBlurEffect(style: .light)))
-            .cornerRadius(25)
+            .cornerRadius(25, corners: [.topLeft, .topRight])
             .padding(.top, 50)
         }
     }
